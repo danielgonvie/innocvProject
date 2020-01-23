@@ -4,21 +4,27 @@ import { Switch, Route } from 'react-router-dom';
 import AuthService from './services/AuthService';
 
 import Login from './components/Login/Login';
-import Navbar from './components/Navbar/Navbar';
+import SignUp from './components/Signup/Signup';
 
 import './App.scss';
-import SignUp from './components/Signup/Signup';
+
+import Navbar from './components/Navbar/Navbar';
+
+
+
 
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
-    this.state = {
-      user: null,
 
-    };
   }
+
+  state = {
+    user: null,
+
+  };
 
   setUser = (user) => {
     this.setState({ ...this.state, user })
@@ -62,8 +68,9 @@ export default class App extends Component {
           </Switch> }
           
           {!user && <Switch>
-            <Route exact path="/login"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar><Login {...match} setUser={this.setUser}/></React.Fragment>}/> 
-            <Route exact path="/signup"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar> <SignUp {...match} setUser={this.setUser}/></React.Fragment>}/> 
+            <Route exact path="/users"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar></React.Fragment>}/> 
+            <Route exact path="/login"  render={(match) => <React.Fragment> <Navbar {...match} user={user} ></Navbar><Login {...match} setUser={this.setUser}/></React.Fragment>}/> 
+            <Route exact path="/signup"  render={(match) => <React.Fragment> <Navbar {...match} user={user} ></Navbar> <SignUp {...match} setUser={this.setUser}/></React.Fragment>}/> 
           </Switch> }
           
         

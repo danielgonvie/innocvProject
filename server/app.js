@@ -3,28 +3,18 @@ require('dotenv').config();
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const passport     = require("passport");
 
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 const cors = require('cors');
 
-
-mongoose
-  .connect('mongodb://localhost/innocvProject', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
-
-mongoose.set('useFindAndModify', false);
+require('./configs/db.config');
+require('./configs/passport.config');
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -39,13 +29,13 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  origin: [`${process.env.REACT_APP_WEB_URL}`],
+  origin: ['http://localhost:3000'],
 }));    
 
 // Enable authentication using session + passport
 app.use(session({
   secret: 'Innocv-app',
-  resave: true,
+  resave: false,
   saveUninitialized: true,
   cookie: {
     secure: false,
@@ -56,14 +46,18 @@ app.use(session({
     ttl: 24 * 60 * 60
    })
 }))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(flash());
-require('./passport')(app);
     
 
-const index = require('./routes/index.routes');
+const index = require('./routes');
 app.use('/', index);
 
-const authRoutes = require('./routes/auth.routes');
+const authRoutes = require('./routes/api/auth.routes');
 app.use('/auth', authRoutes);
       
 

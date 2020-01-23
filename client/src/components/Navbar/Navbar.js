@@ -20,7 +20,7 @@ export default class Navbar extends Component {
     this.authService.logout(this.state).then(
       () => {
         this.setState({user :null})
-        history.push("/");
+        history.push("/users");
       },
       error => {
         console.error(error);
@@ -38,7 +38,7 @@ export default class Navbar extends Component {
             <Link
               className=""
               onClick={e => this.handleLogout(e)}
-              to="/"
+              to="/users"
             >
               <h2>Logout</h2>
             </Link>
@@ -73,11 +73,11 @@ export default class Navbar extends Component {
           <Link
             
             className=""
-            to="/"
+            to="/users"
           >
             
             <div className="">
-            <img className="" src="https://www.innocv.com/wp-content/themes/innocv-twenty//images/innocv_logo_vertical.svg"></img>
+            <img className="" src="https://www.innocv.com/wp-content/themes/innocv-twenty//images/innocv_logo_vertical.svg" alt="Logo"></img>
             
             </div>
           </Link>

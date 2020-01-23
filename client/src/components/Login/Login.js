@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AuthService from '../../services/AuthService';
-import "./Login.scss"
 import { Link } from 'react-router-dom';
+import "./Login.scss"
 
 export default class Login extends Component {
   constructor(props) {
