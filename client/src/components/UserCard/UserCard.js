@@ -16,12 +16,12 @@ export default class UserCard extends Component {
     return (
       <div className="usercard-container">
         <div className="name-card">
-        <Link className="" to={"/users/" + this.props.user._id}>
+        <Link className="name-link" to={"/users/" + this.props.user._id}>
         <h3>{this.props.user.name}</h3>
         </Link>
         </div>
         <div className="delete-card">
-        <h3>X</h3>
+        <img className="delete-img" src="images/cross.svg" alt="delete"></img>
         </div>
       </div>
     );

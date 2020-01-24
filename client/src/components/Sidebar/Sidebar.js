@@ -14,20 +14,6 @@ export default class Sidebar extends Component {
     };
   }
 
-  handleLogout = e => {
-    const { history } = this.props;
-
-    e.preventDefault();
-    this.authService.logout(this.state).then(
-      () => {
-        this.setState({ user: null });
-        history.push("/");
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  };
 
   render() {
     let navbar = <React.Fragment></React.Fragment>;
@@ -35,7 +21,7 @@ export default class Sidebar extends Component {
       navbar = (
         <React.Fragment>
           <h1>Hola {this.state.user.name}</h1>
-          <Link onClick={e => this.handleLogout(e)} to="/">
+          <Link onClick={e => this.props.logout(e)} to="/">
             <h2>Logout</h2>
           </Link>
         </React.Fragment>

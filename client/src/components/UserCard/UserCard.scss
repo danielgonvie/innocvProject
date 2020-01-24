@@ -1,4 +1,29 @@
-.usercard-container{
-    width: 60vw;
-    height: 100px;
+.usercard-container {
+  width: 60vw;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: #1d1d1d;
+  margin: 10px 0px;
+}
+
+.name-link {
+  color: white;
+}
+.name-card {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  .delete-img {
+    width: 60%;
+    height: 80%;
+  }
 }
