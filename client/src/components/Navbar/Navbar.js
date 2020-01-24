@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
+
+
+import "./Navbar.scss";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -36,7 +38,6 @@ export default class Navbar extends Component {
             <React.Fragment>
             <h1>Hola {this.state.user.name}</h1>
             <Link
-              className=""
               onClick={e => this.handleLogout(e)}
               to="/users"
             >
@@ -49,15 +50,11 @@ export default class Navbar extends Component {
         <React.Fragment>
           <div className="">
             <Link
-              
-              className=""
               to="/login"
             >
               <h2>Login</h2>
             </Link>
             <Link
-              
-              className=""
               to="/signup"
             >
               <h2>SignUp</h2>
@@ -68,20 +65,12 @@ export default class Navbar extends Component {
     }
 
     return (
-      <nav className="">
-        <div className="">
+      <nav className="main-navbar">
           <Link
-            
-            className=""
             to="/users"
           >
-            
-            <div className="">
-            <img className="" src="https://www.innocv.com/wp-content/themes/innocv-twenty//images/innocv_logo_vertical.svg" alt="Logo"></img>
-            
-            </div>
+            <img className="navbar-logo" src="https://www.innocv.com/wp-content/themes/innocv-twenty//images/innocv_logo_vertical.svg" alt="Logo"></img>
           </Link>
-        </div>
         {navbar}
       </nav>
     );

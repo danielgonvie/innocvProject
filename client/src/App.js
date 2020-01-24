@@ -8,7 +8,8 @@ import SignUp from './components/Signup/Signup';
 
 import './App.scss';
 
-import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import UserList from './components/UserList/UserList';
 
 
 
@@ -62,15 +63,15 @@ export default class App extends Component {
       <div>
         
           {user && <Switch>
-            <Route exact path="/users"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar></React.Fragment>}/> 
-            <Route exact path="/users/:id"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar></React.Fragment>}/> 
+            <Route exact path="/"  render={(match) => <React.Fragment> <Sidebar {...match} user={user} logout={this.deleteUser}></Sidebar> <UserList {...match} user={user}></UserList> </React.Fragment>}/> 
+            <Route exact path="/users/:id"  render={(match) => <React.Fragment> <Sidebar {...match} user={user} logout={this.deleteUser}></Sidebar></React.Fragment>}/> 
             
           </Switch> }
           
           {!user && <Switch>
-            <Route exact path="/users"  render={(match) => <React.Fragment> <Navbar {...match} user={user} logout={this.deleteUser}></Navbar></React.Fragment>}/> 
-            <Route exact path="/login"  render={(match) => <React.Fragment> <Navbar {...match} user={user} ></Navbar><Login {...match} setUser={this.setUser}/></React.Fragment>}/> 
-            <Route exact path="/signup"  render={(match) => <React.Fragment> <Navbar {...match} user={user} ></Navbar> <SignUp {...match} setUser={this.setUser}/></React.Fragment>}/> 
+            <Route exact path="/"  render={(match) => <React.Fragment> <Sidebar {...match} user={user}></Sidebar> <UserList {...match} user={user}></UserList> </React.Fragment>}/> 
+            <Route exact path="/login"  render={(match) => <React.Fragment> <Sidebar {...match} user={user}></Sidebar> <Login {...match} setUser={this.setUser}/></React.Fragment>}/> 
+            <Route exact path="/signup"  render={(match) => <React.Fragment> <Sidebar {...match} user={user}></Sidebar> <SignUp {...match} setUser={this.setUser}/></React.Fragment>}/> 
           </Switch> }
           
         

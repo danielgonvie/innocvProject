@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import AuthService from '../../services/AuthService';
-import { Link } from 'react-router-dom';
 import "./Login.scss"
 
 export default class Login extends Component {
@@ -26,7 +25,7 @@ export default class Login extends Component {
     .then(
       (user) => {
         setUser(user)
-        history.push("/users")
+        history.push("/")
       },
       (error) => {
         console.error(error)
@@ -37,25 +36,21 @@ export default class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className="">
-      <Link  className="" to="/">
-      <h1 className="">⇠ Volver</h1>
-      </Link>
-      <div className="">
-        <h1 className="">Login User</h1>
-        
-        <form className="" onSubmit={this.handleLogin}>
-          <label className="">Username: </label>
-          <input className="" type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label className="" >Password: </label>
-          <input className="" type="password" name="password" value={password} onChange={this.handleChange}/>
-          <div className="">
-          <input className="" type="submit" value="Login"/>
+
+      <div className="login-container">
+        <h1>LOGIN</h1>
+        <form className="login-form" onSubmit={this.handleLogin}>
+          <div className="login-param">
+          <label>Username</label>
+          <input className="login-field" type="text" name="username" value={username} onChange={this.handleChange} required placeholder="Username"/>
           </div>
+          <div className="login-param">
+          <label>Password</label>
+          <input className="login-field" type="password" name="password" value={password} onChange={this.handleChange} required placeholder="Password"/>
+          </div>
+          <input className="submit-button" type="submit" value="LOGIN"/>
         </form>
         </div>
-      
-      </div>
     )
   }
 }

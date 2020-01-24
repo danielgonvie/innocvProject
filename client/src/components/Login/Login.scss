@@ -1,0 +1,37 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .login-param {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .login-field{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border-radius: 20px;
+        box-sizing: border-box;
+      }
+    }
+    .submit-button {
+        background-color: #C38EFE;
+        color: black;
+        border-style: outset;
+        border: 2px solid black;
+        height: 50px;
+        width: 100px;
+        border-radius: 20px;
+        font: bolder 15px 'Montserrat', sans-serif;
+        text-shadow:none;
+        margin: 15px 0px;
+        }
+  }
+}

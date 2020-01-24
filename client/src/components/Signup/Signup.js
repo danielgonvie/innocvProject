@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from '../../services/AuthService'
 import "./Signup.scss"
-import { Link } from 'react-router-dom'
 export default class SignUp extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +26,7 @@ export default class SignUp extends Component {
     .then(
       (user) => {
         setUser(user);
-        history.push("/users")
+        history.push("/")
       },
       (error) => {
         console.error(error)
@@ -39,24 +38,27 @@ export default class SignUp extends Component {
   render() {
     const { username, password, name, birthdate } = this.state;
     return (
-      <div className="">
-            <Link className="" to="/">
-      <h1 className="">⇠ Volver</h1>
-      </Link>
-      <div className="">
-      <h1 className="">SignUp</h1>
-        <form className="" onSubmit={this.handleSignUp}>
-          <label className="" >Username: </label>
-          <input className="" type="text" name="username" value={username} required onChange={this.handleChange}/>
-          <label className="">Password: </label>
-          <input className="" type="password" value={password} name="password" required onChange={this.handleChange}/>
-          <label className="">Name: </label>
-          <input className="" type="text" value={name} name="name" required onChange={this.handleChange}/>
-          <label className="">Birthdate: </label>
-          <input className="" type="text" value={birthdate} name="birthdate" required onChange={this.handleChange}/>
-          <input className="signup-button" type="submit" value="Create account"/> 
+      <div className="signup-container">
+      <h1>SIGNUP</h1>
+        <form className="signup-form" onSubmit={this.handleSignUp}>
+          <div className="signup-param">
+          <label>Username </label>
+          <input className="signup-field" type="text" name="username" value={username} required onChange={this.handleChange} placeholder="Username"/>
+          </div>
+          <div className="signup-param">
+          <label>Password </label>
+          <input className="signup-field" type="password" value={password} name="password" required onChange={this.handleChange} placeholder="Password > 4 chracters"/>
+          </div>
+          <div className="signup-param">
+          <label>Name </label>
+          <input className="signup-field" type="text" value={name} name="name" required onChange={this.handleChange} placeholder="Name"/>
+          </div>
+          <div className="signup-param">
+          <label>Birthdate </label>
+          <input className="signup-field" type="date" value={birthdate} name="birthdate" required onChange={this.handleChange} />
+          </div>
+          <input className="submit-button" type="submit" value="SIGNUP"/> 
         </form>
-      </div>
       </div>
     )
   }
