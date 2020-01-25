@@ -23,6 +23,11 @@
   height: 50%;
 }
 
+.authentication-logo{
+  height: 50px;
+  margin-left: 15px;
+}
+
 .navbar-logo{
     position: relative;
 }
@@ -30,8 +35,12 @@
 .sidebar-link{
   text-decoration: none;
 }
-.sidebar-option{
+.sidebar-title{
   color: #E1E1E1;
+}
+.sidebar-option{
+  display: flex;
+  align-items: center;
 }
 
 .sidebar-footer{
@@ -44,6 +53,9 @@
   width: 24px;
 }
 
+.credits{
+  font-size: 16px;
+}
 /* Individual item */
 .bm-item {
     display: inline-block;

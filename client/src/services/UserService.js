@@ -3,7 +3,7 @@ import axios from 'axios';
 class UserService {
   constructor() {
     this.instance = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}/users`,
+      baseURL: `${process.env.REACT_APP_API_URL}`,
       withCredentials: true
     })
   }
@@ -21,13 +21,19 @@ class UserService {
   }
 
   updateUser = (id, name, birthdate) => {
-    return this.instance.post(`/edit/${id}`, {name, birthdate})
+    return this.instance.put(`/users/edit/${id}`, {name, birthdate})
+    .then(res=> Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
+  newUser = (name, birthdate) => {
+    return this.instance.post(`/users/new`, {name, birthdate})
     .then(res=> Promise.resolve(res.data))
     .catch(error => console.error(error))
   }
 
   deleteUser = (id) =>{
-    return this.instance.post(`/delete/${id}`)
+    return this.instance.delete(`/users/delete/${id}`)
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }

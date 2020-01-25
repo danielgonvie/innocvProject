@@ -3,6 +3,7 @@ import UserService from '../../services/UserService';
 import UserCard from '../UserCard/UserCard';
 import SearchBar from '../SearchBar/SearchBar';
 import './UserList.scss'
+import { Link } from 'react-router-dom';
 
 
 class UserList extends React.Component {
@@ -19,8 +20,22 @@ class UserList extends React.Component {
   }
 
  
-  
+  deleteUser = (user) => {
+    this.userService.deleteUser(user._id)
+    .then((user) => {this.userService.fetchUsers()
+    .then(
+      (users) => {
+        this.setState({ ...this.state, users: users, initialUsers: users})
+      },
+      (error) => {
+        const { message } = error;
+        console.error(message)
+      }
+    )
+    })
+  };
 
+  
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ ...this.state, [name]: value })
@@ -43,22 +58,17 @@ class UserList extends React.Component {
   onKeyDown(e){
     if (e.keyCode === 8) {
       this.setState({users: this.state.initialUsers})
-     
-
     }
   }
 
-  
-
   displayUsers = () => {
-    const { users } = this.state;
-    // <Todo key={i} name={todo.name} description={todo.description} done={todo.done} />
-    
-    return users.map((user, i) => <UserCard key={i} user={user} />)
+    const { users } = this.state; 
+    return users.map((user, i) => <UserCard key={i} user={user} delete={this.deleteUser}/>)
   }
 
   componentDidMount() {
     this.updateUsers()
+    
   }
   
   updateUsers = () => {
@@ -81,15 +91,21 @@ class UserList extends React.Component {
 
     const { users } = this.state;
     return (
-      <div className="">
-      
+      <div className="users-list-component">
       <SearchBar  search={e => this.searchUsers(e)} onkey={e => this.onKeyDown(e)}></SearchBar>
         <div className="users-list">
           {users && this.displayUsers()}
           {!users && <p>Loading users...</p> }
-          
         </div>
-        
+        <div className="add-user-container">
+        <Link to="/new">
+            <img
+            className="add-user-logo"
+            src="/images/add-user.svg"
+            alt="Logo"
+          ></img>
+          </Link>
+        </div>
       </div>
     )
   }

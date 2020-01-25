@@ -39,7 +39,7 @@ export default class SignUp extends Component {
     const { username, password, name, birthdate } = this.state;
     return (
       <div className="signup-container">
-      <h1>SIGNUP</h1>
+      <h1 className="signup-title">SIGNUP</h1>
         <form className="signup-form" onSubmit={this.handleSignUp}>
           <div className="signup-param">
           <label>Username </label>

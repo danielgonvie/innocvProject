@@ -1,0 +1,52 @@
+.add-new-user-panel{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-new-user{
+
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    border: 1px solid #E1E1E1;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
+.add-user-title{
+    position:absolute;
+    top: -17px;
+    left: 10px;
+    background-color: #121212;
+    font-size: 25px;
+}
+
+.add-user-name, .add-user-date{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.add-user-form{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: initial;
+}
+
+.add-user-button{
+    margin: 20px 0px;
+}
+
+.confirm-message{
+    color:green;
+}
+

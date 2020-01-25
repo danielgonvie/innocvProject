@@ -38,7 +38,7 @@ export default class Login extends Component {
     return (
 
       <div className="login-container">
-        <h1>LOGIN</h1>
+        <h1 className="login-title">LOGIN</h1>
         <form className="login-form" onSubmit={this.handleLogin}>
           <div className="login-param">
           <label>Username</label>

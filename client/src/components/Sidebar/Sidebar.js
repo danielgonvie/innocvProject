@@ -20,21 +20,44 @@ export default class Sidebar extends Component {
     if (this.state.user !== undefined && this.state.user !== null) {
       navbar = (
         <React.Fragment>
-          <h1>Hola {this.state.user.name}</h1>
+          <h2>Hola {this.state.user.name}!</h2>
+          <br></br>
           <Link onClick={e => this.props.logout(e)} to="/">
-            <h2>Logout</h2>
+          <div className="sidebar-option">
+            <h2 className="sidebar-title">Logout</h2>
+            <img
+            className="authentication-logo"
+            src="/images/logout.svg"
+            alt="Logo"
+          ></img>
+          </div>
           </Link>
         </React.Fragment>
       );
     } else {
       navbar = (
         <React.Fragment>
-          <div >
+          <div>
             <Link className="sidebar-link" to="/login">
-              <h2 className="sidebar-option">Login</h2>
+            <div className="sidebar-option">
+              <h2 className="sidebar-title">Login</h2> 
+              <img
+            className="authentication-logo"
+            src="/images/login.svg"
+            alt="Logo"
+          ></img>
+          </div>
             </Link>
+            <br></br>
             <Link className="sidebar-link" to="/signup">
-              <h2 className="sidebar-option">SignUp</h2>
+             <div className="sidebar-option">
+              <h2 className="sidebar-title">SignUp</h2>
+              <img
+            className="authentication-logo"
+            src="/images/signup.svg"
+            alt="Logo"
+          ></img>
+          </div>
             </Link>
           </div>
         </React.Fragment>
@@ -55,7 +78,7 @@ export default class Sidebar extends Component {
         <Menu>
         {navbar}
         <div className="sidebar-footer">
-        <h3> Made by <img className="github-logo" src="images/github.svg" alt="github logo"></img>danielgonvie</h3>
+        <h3 className="credits"> Made by <img className="github-logo" src="images/github.svg" alt="github logo"></img>danielgonvie</h3>
         </div></Menu>
       </div>
     );

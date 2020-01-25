@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../../models/User");
 
 // Get all users
-router.get("/users", (req, res, next) => {
+router.get("/", (req, res, next) => {
   User.find()
     .then(users => {
       res.status(200).json(users);
@@ -15,7 +15,7 @@ router.get("/users", (req, res, next) => {
 });
 
 // Get a specific user
-router.get("/users/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   const { id } = req.params;
   User.findById(id)
     .then(user => {
@@ -25,8 +25,6 @@ router.get("/users/:id", (req, res, next) => {
 });
 
 //Edit a especific user
-router.get("/edit/:id", (req, res, next) => res.render("edit"));
-
 router.put("/edit/:id", (req, res, next) => {
   const name = req.body.name;
   const birthdate = req.body.birthdate;
@@ -41,15 +39,14 @@ router.put("/edit/:id", (req, res, next) => {
 });
 
 //Create a new user
-router.get("/new", (req, res, next) => res.render("new"));
 router.post("/new", (req, res, next) => {
   User.create({
     name: req.body.name,
     birthdate: req.body.birthdate
   })
-    .then(() => {
+    .then((user) => {
       console.log("User has been created successfully");
-      res.redirect("/users");
+      res.json(user);
     })
     .catch(function() {
       next();

@@ -6,7 +6,6 @@ import "./UserCard.scss";
 export default class UserCard extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       user: this.props.user
     };
@@ -21,7 +20,7 @@ export default class UserCard extends Component {
         </Link>
         </div>
         <div className="delete-card">
-        <img className="delete-img" src="images/cross.svg" alt="delete"></img>
+        <button  className="delete-user" onClick={() => this.props.delete(this.state.user)}><img className="delete-img" src="images/cross.svg" alt="delete"></img></button>
         </div>
       </div>
     );
