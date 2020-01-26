@@ -55,7 +55,7 @@ router.post("/new", (req, res, next) => {
     });
 });
 
-//Delete a especific user
+//Delete user
 router.delete("/delete/:id", (req, res, next) => {
   const { id } = req.params;
   User.findByIdAndRemove(id)

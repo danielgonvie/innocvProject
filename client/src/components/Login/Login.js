@@ -54,7 +54,7 @@ export default class Login extends Component {
         <h1 className="login-title">{text3}</h1>
         <form className="login-form" onSubmit={this.handleLogin}>
           <div className="login-param">
-            <label>{text2}</label>
+            <label>{text1}</label>
             <input
               className="login-field"
               type="text"
@@ -62,11 +62,11 @@ export default class Login extends Component {
               value={username}
               onChange={this.handleChange}
               required
-              placeholder={text2}
+              placeholder={text1}
             />
           </div>
           <div className="login-param">
-            <label>{text3}</label>
+            <label>{text2}</label>
             <input
               className="login-field"
               type="password"
@@ -74,7 +74,7 @@ export default class Login extends Component {
               value={password}
               onChange={this.handleChange}
               required
-              placeholder={text1}
+              placeholder={text2}
             />
           </div>
           <input className="submit-button" type="submit" value={text3} />
