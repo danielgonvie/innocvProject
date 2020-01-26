@@ -97,15 +97,17 @@ class UserList extends React.Component {
           {users && this.displayUsers()}
           {!users && <p>Loading users...</p> }
         </div>
+<Link to="/new">
         <div className="add-user-container">
-        <Link to="/new">
+        
             <img
             className="add-user-logo"
             src="/images/add-user.svg"
             alt="Logo"
           ></img>
-          </Link>
+          
         </div>
+</Link>
       </div>
     )
   }

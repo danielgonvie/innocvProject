@@ -35,7 +35,7 @@ export default class UserDetail extends Component {
         <div className="user-edit-info">
         <h1 className="user-edit-title">Edit</h1>
         <form className="user-edit-form" onSubmit={this.saveUser}>
-        <input type="text" name="name" pattern="[A-Za-z_ ]{1,10}" value={this.state.name} onChange={e => this.handleChange(e)}  className="user-edit-name" required placeholder="Name"></input>
+        <input type="text" name="name" pattern="[A-Za-z_ áéíóú]{1,10}" value={this.state.name} onChange={e => this.handleChange(e)}  className="user-edit-name" required placeholder="Name"></input>
         <input type="date" name="birthdate" pattern="20\d{2}(-|\/)((0[1-9])|(1[0-2]))(-|\/)((0[1-9])|([1-2][0-9])|(3[0-1]))(T|\s)(([0-1][0-9])|(2[0-3])):([0-5][0-9]):([0-5][0-9])" value={this.state.birthdate} onChange={e => this.handleChange(e)} className="user-edit-date" ></input>
         <Button variant="primary" className="edit-button"><input className="input-button" type="submit" value="Save changes!"/></Button>
         </form>

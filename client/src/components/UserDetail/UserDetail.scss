@@ -107,3 +107,10 @@
         font-weight: bold;
     }
   }
+
+
+  @media (max-height: 600px) {
+    .user-profile{
+        margin-top: 100px;
+    }
+  }

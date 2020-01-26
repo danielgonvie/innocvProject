@@ -20,8 +20,12 @@
     align-items: center;
     border-radius: 50%;
     box-shadow: 4px 4px 5px black;
+    transition: 0.2s ease-out;
 }
-
+.add-user-container:hover{
+    border-radius: 5px;
+    transition: 0.2s ease-in;
+}
 .add-user-logo{
     height: 40px;
 }
@@ -39,5 +43,12 @@
     }
     .add-user-logo{
         height: 60px;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .users-list-component{
+        position:relative;
+        margin-top: 100px;
     }
   }

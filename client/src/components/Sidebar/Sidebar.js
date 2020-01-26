@@ -77,6 +77,9 @@ export default class Sidebar extends Component {
         </div>
         <Menu>
         {navbar}
+        <Link  to="/secret">
+        <h1 className="sidebar-top-secret-panel">Top Secret Panel</h1>
+        </Link>
         <div className="sidebar-footer">
         <h3 className="credits"> Made by <img className="github-logo" src="images/github.svg" alt="github logo"></img>danielgonvie</h3>
         </div></Menu>

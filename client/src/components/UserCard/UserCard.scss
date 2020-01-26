@@ -52,3 +52,15 @@
     border-radius: 20px;
   }
 }
+
+@media (min-width: 600px) {
+  .usercard-container {
+    width: 20vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: #1d1d1d;
+    margin: 10px 10px;
+    border-radius: 20px;
+  }
+}
