@@ -44,7 +44,59 @@ let users = [
   birthdate: "1970-11-24",
   username: "rick",
   password: bcrypt.hashSync("rick", bcrypt.genSaltSync(bcryptSalt)),
-}
+},
+{
+  name: "Paula",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Jesús",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Paco",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Luis",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Marcos",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Aida",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Estefanía",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Esther",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Miguel",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Carmen",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Lorena",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Manuel",
+  birthdate: "1970-11-24",
+},
+{
+  name: "Jacinto",
+  birthdate: "1970-11-24",
+},
 ]
 
 User.deleteMany()

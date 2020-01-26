@@ -1,10 +1,12 @@
 .mobile-navbar{
-    position: relative;
+    position: fixed;
+    top:0px;
     width:100vw;
     height: 15vh;
     background-color: #1F1F1F;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
 }
 
 .navbar-container{
