@@ -61,7 +61,7 @@ export default class NewUser extends Component {
                 <div className="add-new-user">
                 <h1 className="add-user-title">Add user</h1>
                 <form className="add-user-form" onSubmit={e => this.pushUser(e, this.state.user.name, this.state.user.birthdate)} >
-                 <input type="text" name="name" pattern="[A-Za-z_]{1,10}" value={this.state.user.name} onChange={e => this.handleChange(e)}  className="add-user-name" required placeholder="Name"></input>
+                 <input type="text" name="name" pattern="[A-Za-z_ ]{1,10}" value={this.state.user.name} onChange={e => this.handleChange(e)}  className="add-user-name" required placeholder="Name"></input>
                  <input type="date" name="birthdate"  pattern="20\d{2}(-|\/)((0[1-9])|(1[0-2]))(-|\/)((0[1-9])|([1-2][0-9])|(3[0-1]))(T|\s)(([0-1][0-9])|(2[0-3])):([0-5][0-9]):([0-5][0-9])" value={this.state.user.birthdate} onChange={e => this.handleChange(e)} className="add-user-date" required></input>
                 <Button variant="primary" className="add-user-button"><input className="input-button" type="submit" value="Add user!"/></Button>
         </form>

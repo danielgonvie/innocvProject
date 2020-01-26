@@ -80,7 +80,7 @@ export default class App extends Component {
           {user && <Switch>
             <Route exact path="/"  render={(match) => <React.Fragment> <Sidebar {...match} user={user} logout={this.handleLogout}></Sidebar> <UserList {...match} user={user}></UserList> </React.Fragment>}/> 
             <Route exact path="/users/:id"  render={(match) => <React.Fragment> <Sidebar {...match} user={user} logout={this.handleLogout}></Sidebar> <UserDetail {...match} user={user}></UserDetail> </React.Fragment>}/> 
-            
+            <Route exact path="/new"  render={(match) => <React.Fragment> <Sidebar {...match} user={user}></Sidebar> <NewUser {...match} user={user}></NewUser></React.Fragment>}/> 
           </Switch> }
           
           {!user && <Switch>

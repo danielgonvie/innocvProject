@@ -32,6 +32,7 @@
 
 .navbar-logo{
     position: relative;
+    height: 9vh;
 }
 
 .sidebar-link{
@@ -128,3 +129,15 @@
     background: rgba(0, 0, 0, 0.3);
   }
 
+
+  @media (min-width: 600px) {
+    .bm-burger-button {
+      position: absolute;
+      width: 10%;
+      max-width: 60px;
+      height: 40%;
+      min-height: 35px;
+      left: 5%;
+      top: 25%;
+    }
+  }

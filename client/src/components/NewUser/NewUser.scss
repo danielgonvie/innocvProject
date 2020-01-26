@@ -1,69 +1,86 @@
-.add-new-user-panel{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 17vh;
+.add-new-user-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17vh;
 }
-.add-new-user{
-
-    position:relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-    border: 1px solid #E1E1E1;
-    border-radius: 10px;
-    margin: 20px 0px;
-}
-
-.add-user-title{
-    position:absolute;
-    top: -17px;
-    left: 10px;
-    background-color: #121212;
-    font-size: 25px;
+.add-new-user {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  margin: 20px 0px;
 }
 
-.add-user-name, .add-user-date{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 20px 0;
-    border-radius: 20px;
-    box-sizing: border-box;
+.add-user-title {
+  position: absolute;
+  top: -17px;
+  left: 10px;
+  background-color: #121212;
+  font-size: 25px;
 }
 
-.add-user-form{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    white-space: initial;
+.add-user-name,
+.add-user-date {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
-.add-user-button{
-    margin: 20px 0px;
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: initial;
 }
 
-.confirm-message{
-    color:green;
+.add-user-button {
+  margin: 20px 0px;
 }
 
-.new-users-title{
-    font-size: 30px;
-    text-decoration: underline;
-}
-.new-users-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.confirm-message {
+  color: green;
 }
 
-.new-user-added{
-    display:flex;
+.new-users-title {
+  font-size: 30px;
+  text-decoration: underline;
+}
+.new-users-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80vw;
+}
+
+.new-user-added {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80vw;
+}
+
+@media (min-width: 600px) {
+  .add-new-user-panel {
     flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .add-new-user {
+    width: 40vw;
+  }
+  .new-users-container,
+  .new-user-added {
+    width: 40vw;
+  }
 }

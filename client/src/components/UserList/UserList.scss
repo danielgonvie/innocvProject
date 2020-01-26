@@ -25,3 +25,19 @@
 .add-user-logo{
     height: 40px;
 }
+
+@media (min-width: 600px) {
+    .users-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .add-user-container{
+        height: 90px;
+        width: 90px;
+    }
+    .add-user-logo{
+        height: 60px;
+    }
+  }

@@ -51,7 +51,7 @@ export default class SignUp extends Component {
           </div>
           <div className="signup-param">
           <label>Name </label>
-          <input className="signup-field" type="text" value={name} pattern="[A-Za-z_]{1,10}" name="name" required onChange={this.handleChange} placeholder="Name"/>
+          <input className="signup-field" type="text" value={name} pattern="[A-Za-z_ ]{1,10}" name="name" required onChange={this.handleChange} placeholder="Name"/>
           </div>
           <div className="signup-param">
           <label>Birthdate </label>
