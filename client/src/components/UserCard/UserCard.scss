@@ -26,19 +26,17 @@
   .delete-img {
     width: 60%;
     height: 40px;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
-.delete-user{
-    
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-
+.delete-user {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 
 @media (min-width: 600px) {

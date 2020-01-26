@@ -1,116 +1,120 @@
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17vh;
+}
+.user-info,
+.user-edit-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  margin: 20px 0px;
+}
 
-.user-profile{
-    display:flex;
+.user-title,
+.user-edit-title {
+  position: absolute;
+  top: -17px;
+  left: 10px;
+  background-color: #121212;
+  font-size: 25px;
+}
+.user-name,
+.user-date {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0px;
+}
+
+.user-edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: initial;
+}
+
+.user-edit-name {
+  margin: 20px 0px;
+}
+
+.user-edit-name,
+.user-edit-date {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.edit-button {
+  margin: 20px 0px;
+}
+
+.input-button,
+.delete-user-button {
+  background: transparent;
+  border: none !important;
+  color: #e1e1e1;
+}
+
+.delete-user-button {
+  width: 80vw;
+  height: 40px;
+  color: black;
+  font-weight: bold;
+}
+
+.confirm-message {
+  color: green;
+  transition: 0.5s ease-in;
+}
+
+@media (min-width: 600px) {
+  .user-profile {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 17vh;
-}
-.user-info, .user-edit-info{
-    position:relative;
+  }
+  .user-profile-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .user-info,
+  .user-edit-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90vw;
-    border: 1px solid #E1E1E1;
+    width: 40vw;
+    border: 1px solid #e1e1e1;
     border-radius: 10px;
-    margin: 20px 0px;
-}
+    margin: 20px 20px;
+  }
 
-.user-title, .user-edit-title{
-    position:absolute;
-    top: -17px;
-    left: 10px;
-    background-color: #121212;
-    font-size: 25px;
-}
-.user-name, .user-date{
-    display:flex;
-    flex-wrap: wrap;
-    margin: 20px 0px;
-}
-
-.user-edit-form{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    white-space: initial;
-}
-
-.user-edit-name{
-    margin: 20px 0px;
-}
-
-.user-edit-name, .user-edit-date{
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-sizing: border-box;
-}
-
-.edit-button{
-    margin: 20px 0px;
-}
-
-.input-button, .delete-user-button{
-    background: transparent;
-    border: none !important;
-    color: #E1E1E1
-}
-
-.delete-user-button{
-    width: 80vw;
+  .delete-user-button {
+    width: 40vw;
     height: 40px;
     color: black;
     font-weight: bold;
+  }
 }
 
-.confirm-message{
-    color:green;
-    transition: 0.5s ease-in;
+@media (max-height: 600px) {
+  .user-profile {
+    margin-top: 100px;
+  }
 }
-
-@media (min-width: 600px) {
-    .user-profile{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 17vh;
-    }
-    .user-profile-options{
-        display:flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .user-info, .user-edit-info{
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 40vw;
-        border: 1px solid #E1E1E1;
-        border-radius: 10px;
-        margin: 20px 20px;
-    }
-
-    .delete-user-button{
-        width: 40vw;
-        height: 40px;
-        color: black;
-        font-weight: bold;
-    }
-  }
-
-
-  @media (max-height: 600px) {
-    .user-profile{
-        margin-top: 100px;
-    }
-  }

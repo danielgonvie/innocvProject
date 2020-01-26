@@ -29,10 +29,11 @@ router.put("/edit/:id", (req, res, next) => {
   const name = req.body.name;
   const birthdate = req.body.birthdate;
 
-  User.findOneAndUpdate(req.params.id, {name: name , birthdate: birthdate})
+  User.findOneAndUpdate(req.params.id, { name: name, birthdate: birthdate })
     .then(user => {
-      User.findById(user._id)
-      .then(user => {res.status(200).json(user);})
+      User.findById(user._id).then(user => {
+        res.status(200).json(user);
+      });
       console.log("User has been updated successfully");
     })
     .catch(error => console.log("Ha sucedido algo malo" + error));
@@ -44,7 +45,7 @@ router.post("/new", (req, res, next) => {
     name: req.body.name,
     birthdate: req.body.birthdate
   })
-    .then((user) => {
+    .then(user => {
       console.log("User has been created successfully");
       res.json(user);
     })

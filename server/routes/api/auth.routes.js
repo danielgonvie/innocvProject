@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
 const router = express.Router();
 const User = require("../../models/User");
 
@@ -7,22 +7,22 @@ const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, theUser, failureDetails) => {
-
-     if (err) {
-      res.status(500).json({ message: 'Something went wrong authenticating user' });
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, theUser, failureDetails) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ message: "Something went wrong authenticating user" });
       return;
     }
-   if (!theUser) { 
+    if (!theUser) {
       res.status(401).json(failureDetails);
       return;
     }
 
-    req.login(theUser, (err) => {
+    req.login(theUser, err => {
       if (err) {
-        res.status(500).json({ message: 'Session save went bad.' });
+        res.status(500).json({ message: "Session save went bad." });
         return;
       }
       res.status(200).json(theUser);
@@ -30,54 +30,56 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+router.post("/signup", (req, res, next) => {
+  const { username, password, name, birthdate } = req.body;
 
-
-router.post('/signup', (req, res, next) => {
-  const { username, password, name, birthdate } = req.body
-
-  if (!username || !password || !name || !birthdate ) {
-    res.status(400).json({ message: 'All fields must be filled!' });
+  if (!username || !password || !name || !birthdate) {
+    res.status(400).json({ message: "All fields must be filled!" });
     return;
   }
 
   if (password.length < 4) {
-    res.status(400).json({ message: 'Password must have at least 4 characters' });
+    res
+      .status(400)
+      .json({ message: "Password must have at least 4 characters" });
     return;
   }
 
   User.findOne({ username }, (err, foundUser) => {
-
     if (err) {
       res.status(500).json({ message: "Something went wrong! Try again" });
       return;
     }
 
     if (foundUser) {
-      res.status(400).json({ message: 'Username already exists' });
+      res.status(400).json({ message: "Username already exists" });
       return;
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-    
+
     const newUser = new User({
       username,
       password: hashPass,
       name,
-      birthdate,
+      birthdate
     });
 
     newUser.save(err => {
       if (err) {
-        res.status(400).json({ message: 'Ups! Something went wrong :(' });
+        res.status(400).json({ message: "Ups! Something went wrong :(" });
         return;
       }
 
       // Automatically log in user after sign up
-      req.login(newUser, (err) => {
-
+      req.login(newUser, err => {
         if (err) {
-          res.status(500).json({ message: 'Autologgin failed. Please refresh and try to login' });
+          res
+            .status(500)
+            .json({
+              message: "Autologgin failed. Please refresh and try to login"
+            });
           return;
         }
 
@@ -87,20 +89,17 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-
-
-router.get('/loggedin', (req, res, next) => {
+router.get("/loggedin", (req, res, next) => {
   if (req.isAuthenticated()) {
     res.status(200).json(req.user);
     return;
   }
-  res.status(403).json({ message: 'Unauthorized' });
+  res.status(403).json({ message: "Unauthorized" });
 });
-
 
 router.post("/logout", (req, res) => {
   req.logout();
-  res.json({message: 'Logged out successfully!'});
+  res.json({ message: "Logged out successfully!" });
 });
 
 module.exports = router;

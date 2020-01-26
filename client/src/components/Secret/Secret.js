@@ -21,16 +21,32 @@ export default class Secret extends Component {
           alt="Party"
         ></img>
         <div className="allowed-jokes">
-            <h2 className="jokes-title">Now you have access to all this bad jokes, congratulations!</h2>
-            <p className="joke"> Why don’t they play poker in the jungle? Too many cheetahs!</p>
-            <p className="joke"> What do you call a can opener that doesn't work? A can't opener!</p>
-            <p className="joke"> You know what the loudest pet you can get is? A trumpet.</p>
-            <p className="joke"> Why did the scarecrow win an award? He was outstanding in his field.</p>
-            <p className="joke"> What did the buffalo say when his son left? Bison!</p>
-            <p className="joke"> What do you call a fish with no eye? Fsh! </p>
-            <p className="joke"> A communist joke isn’t funny… … unless everyone gets it. </p>
+          <h2 className="jokes-title">
+            Now you have access to all this bad jokes, congratulations!
+          </h2>
+          <p className="joke">
+            Why don’t they play poker in the jungle? Too many cheetahs!
+          </p>
+          <p className="joke">
+            What do you call a can opener that doesn't work? A can't opener!
+          </p>
+          <p className="joke">
+            You know what the loudest pet you can get is? A trumpet.
+          </p>
+          <p className="joke">
+            Why did the scarecrow win an award? He was outstanding in his field.
+          </p>
+          <p className="joke">
+            What did the buffalo say when his son left? Bison!
+          </p>
+          <p className="joke"> What do you call a fish with no eye? Fsh! </p>
+          <p className="joke">
+            A communist joke isn’t funny… … unless everyone gets it.
+          </p>
         </div>
-        <h2 className="allowed-end">Now get back to <Link to="/"> WORK</Link></h2>
+        <h2 className="allowed-end">
+          Now get back to <Link to="/"> WORK</Link>
+        </h2>
       </div>
     );
   }
