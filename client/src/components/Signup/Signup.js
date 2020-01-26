@@ -35,12 +35,42 @@ export default class SignUp extends Component {
 
   render() {
     const { username, password, name, birthdate } = this.state;
+
+                //Multi-language
+                let text1;
+                let text2;
+                let text3;
+                let text4;
+                let text5;
+                let text6;
+                let text7;
+                
+                if (this.props.lang === true){
+                  text1 = "SIGNUP"
+                  text2 = "Username"
+                  text3 = "Password"
+                  text4 = "Name" 
+                  text5 = "Password > 4 chracters"
+                  text6= "Name up to 10 characters"
+                  text7= "Birthdate"
+                  
+    
+                } else{
+                  text1 = "REGISTRO"
+                  text2 = "Nombre de usuario"
+                  text3 = "Contraseña"
+                  text4 = "Nombre" 
+                  text5 = "Contraseña mayor de 4 caracteres"
+                  text6= "Nombre de hasta 10 letras"
+                  text7= "Fecha de nacimiento"
+                }
+
     return (
       <div className="signup-container">
-        <h1 className="signup-title">SIGNUP</h1>
+        <h1 className="signup-title">{text1}</h1>
         <form className="signup-form" onSubmit={this.handleSignUp}>
           <div className="signup-param">
-            <label>Username </label>
+            <label>{text2} </label>
             <input
               className="signup-field"
               type="text"
@@ -48,11 +78,11 @@ export default class SignUp extends Component {
               value={username}
               required
               onChange={this.handleChange}
-              placeholder="Username"
+              placeholder={text2}
             />
           </div>
           <div className="signup-param">
-            <label>Password </label>
+            <label>{text3} </label>
             <input
               className="signup-field"
               type="password"
@@ -61,11 +91,11 @@ export default class SignUp extends Component {
               name="password"
               required
               onChange={this.handleChange}
-              placeholder="Password > 4 chracters"
+              placeholder={text5}
             />
           </div>
           <div className="signup-param">
-            <label>Name </label>
+            <label>{text4} </label>
             <input
               className="signup-field"
               type="text"
@@ -74,11 +104,11 @@ export default class SignUp extends Component {
               name="name"
               required
               onChange={this.handleChange}
-              placeholder="Name up to 10 characters"
+              placeholder={text6}
             />
           </div>
           <div className="signup-param">
-            <label>Birthdate </label>
+            <label>{text7} </label>
             <input
               className="signup-field"
               type="date"
@@ -89,7 +119,7 @@ export default class SignUp extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <input className="submit-button" type="submit" value="SIGNUP" />
+          <input className="submit-button" type="submit" value={text1} />
         </form>
       </div>
     );

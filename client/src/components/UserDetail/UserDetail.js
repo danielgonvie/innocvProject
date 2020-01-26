@@ -22,16 +22,37 @@ export default class UserDetail extends Component {
     date = date.split("");
     date.splice(10, 20);
 
+    //Multi-language
+    let text1;
+    let text2;
+    let text3;
+    let text4;
+    let text5;
+
+    if (this.props.lang === true) {
+      text1 = "Info";
+      text2 = "Edit";
+      text3 = "Name up to 10 characters";
+      text4 = "Save changes!";
+      text5 = "DELETE USER!";
+    } else {
+      text1 = "Datos";
+      text2 = "Editar";
+      text3 = "Nombre de hasta 10 caracteres";
+      text4 = "¡Guardar cambios!";
+      text5 = "¡ELIMINAR USUARIO!";
+    }
+
     return (
       <div className="user-profile-options">
         <div className="user-info">
-          <h1 className="user-title">Info</h1>
+          <h1 className="user-title">{text1}</h1>
           <h1 className="user-name">{this.state.name}</h1>
           <h1 className="user-date">{date}</h1>
         </div>
 
         <div className="user-edit-info">
-          <h1 className="user-edit-title">Edit</h1>
+          <h1 className="user-edit-title">{text2}</h1>
           <form className="user-edit-form" onSubmit={this.saveUser}>
             <input
               type="text"
@@ -41,7 +62,7 @@ export default class UserDetail extends Component {
               onChange={e => this.handleChange(e)}
               className="user-edit-name"
               required
-              placeholder="Name up to 10 characters"
+              placeholder={text3}
             ></input>
             <input
               type="date"
@@ -52,11 +73,7 @@ export default class UserDetail extends Component {
               className="user-edit-date"
             ></input>
             <Button variant="primary" className="edit-button">
-              <input
-                className="input-button"
-                type="submit"
-                value="Save changes!"
-              />
+              <input className="input-button" type="submit" value={text4} />
             </Button>
           </form>
         </div>
@@ -66,8 +83,7 @@ export default class UserDetail extends Component {
             className="delete-user-button"
             onClick={e => this.deleteUser(e, this.state.user)}
           >
-            {" "}
-            DELETE USER!
+            {text5}
           </button>
         </Button>
       </div>
@@ -132,13 +148,25 @@ export default class UserDetail extends Component {
   render() {
     let confirm = <React.Fragment></React.Fragment>;
     if (this.state.confirm === true) {
-      confirm = <h1 className="confirm-message">All changes saved!</h1>;
+      confirm = <h1 className="confirm-message">{text6}</h1>;
     }
+    //Multi-language
+    let text6;
+    let text7;
+
+    if (this.props.lang === true) {
+      text6 = "All changes saved!";
+      text7 = "Loading user info...";
+    } else {
+      text6 = "¡Todos los cambios guardados!";
+      text7 = "Cargando usuario...";
+    }
+
     return (
       <div className="user-profile">
         {confirm}
         {this.state.user && this.displayUser()}
-        {!this.state.user && <p>Loading user info...</p>}
+        {!this.state.user && <p>{text7}</p>}
       </div>
     );
   }

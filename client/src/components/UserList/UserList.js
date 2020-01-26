@@ -85,15 +85,27 @@ class UserList extends React.Component {
 
   render() {
     const { users } = this.state;
+
+        //Multi-language
+        let text1;
+        
+    
+        if (this.props.lang === true) {
+          text1 = "Loading users...";
+        } else {
+          text1 = "Cargando usuarios...";
+        }
+
     return (
       <div className="users-list-component">
         <SearchBar
           search={e => this.searchUsers(e)}
           onkey={e => this.onKeyDown(e)}
+          lang={this.props.lang}
         ></SearchBar>
         <div className="users-list">
           {users && this.displayUsers()}
-          {!users && <p>Loading users...</p>}
+          {!users && <p>{text1}</p>}
         </div>
         <Link to="/new">
           <div className="add-user-container">

@@ -38,11 +38,31 @@ export default class NewUser extends Component {
   };
 
   render() {
+
+     //Multi-language
+     let text1;
+     let text2;
+     let text3;
+     let text4;
+     
+     if (this.props.lang === true){
+       text1 = "Add user"
+       text2 = "Name up to 10 characters"
+       text3 = "Add user!"
+       text4 = "New users"
+     } else{
+       text1 = "Añadir usuario"
+       text2 = "Nombre de hasta 10 letras"
+       text3 = "Añadir!"
+       text4 = "Nuevos usuarios"
+     }
+
+     
     let newUsers = <React.Fragment></React.Fragment>;
     if (this.state.users !== []) {
       newUsers = (
         <div className="new-users-container">
-          <h1 className="new-users-title">New users</h1>
+          <h1 className="new-users-title">{text4}</h1>
           {this.state.users.map((user, i) => (
             <div className="new-user-added">
               <h4 className="new-user-name">{user.name}</h4>
@@ -52,11 +72,11 @@ export default class NewUser extends Component {
         </div>
       );
     }
-
+   
     return (
       <div className="add-new-user-panel">
         <div className="add-new-user">
-          <h1 className="add-user-title">Add user</h1>
+          <h1 className="add-user-title">{text1}</h1>
           <form
             className="add-user-form"
             onSubmit={e =>
@@ -71,7 +91,7 @@ export default class NewUser extends Component {
               onChange={e => this.handleChange(e)}
               className="add-user-name"
               required
-              placeholder="Name up to 10 characters"
+              placeholder={text2}
             ></input>
             <input
               type="date"
@@ -83,7 +103,7 @@ export default class NewUser extends Component {
               required
             ></input>
             <Button variant="primary" className="add-user-button">
-              <input className="input-button" type="submit" value="Add user!" />
+              <input className="input-button" type="submit" value={text3} />
             </Button>
           </form>
         </div>
