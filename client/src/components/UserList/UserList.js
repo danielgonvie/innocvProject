@@ -86,15 +86,14 @@ class UserList extends React.Component {
   render() {
     const { users } = this.state;
 
-        //Multi-language
-        let text1;
-        
-    
-        if (this.props.lang === true) {
-          text1 = "Loading users...";
-        } else {
-          text1 = "Cargando usuarios...";
-        }
+    //Multi-language
+    let text1;
+
+    if (this.props.lang === true) {
+      text1 = "Loading users...";
+    } else {
+      text1 = "Cargando usuarios...";
+    }
 
     return (
       <div className="users-list-component">

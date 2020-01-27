@@ -17,7 +17,6 @@ export default class UserDetail extends Component {
   }
 
   displayUser = () => {
-    const { user } = this.state;
     let date = this.state.birthdate;
     date = date.split("");
     date.splice(10, 20);
@@ -78,13 +77,12 @@ export default class UserDetail extends Component {
           </form>
         </div>
 
-        <Button variant="danger" className="delete-button">
-          <button
-            className="delete-user-button"
-            onClick={e => this.deleteUser(e, this.state.user)}
-          >
-            {text5}
-          </button>
+        <Button
+          variant="danger"
+          className="delete-button"
+          onClick={e => this.deleteUser(e, this.state.user)}
+        >
+          {text5}
         </Button>
       </div>
     );
@@ -146,24 +144,22 @@ export default class UserDetail extends Component {
   };
 
   render() {
+    //Multi-language
+    let text6;
+    let text7;
 
-        //Multi-language
-        let text6;
-        let text7;
-    
-        if (this.props.lang === true) {
-          text6 = "All changes saved!";
-          text7 = "Loading user info...";
-        } else {
-          text6 = "¡Todos los cambios guardados!";
-          text7 = "Cargando usuario...";
-        }
-        
+    if (this.props.lang === true) {
+      text6 = "All changes saved!";
+      text7 = "Loading user info...";
+    } else {
+      text6 = "¡Todos los cambios guardados!";
+      text7 = "Cargando usuario...";
+    }
+
     let confirm = <React.Fragment></React.Fragment>;
     if (this.state.confirm === true) {
       confirm = <h1 className="confirm-message">{text6}</h1>;
     }
-
 
     return (
       <div className="user-profile">

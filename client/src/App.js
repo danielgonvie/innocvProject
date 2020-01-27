@@ -54,13 +54,10 @@ export default class App extends Component {
   }
 
   handleLogout = e => {
-    
-
     e.preventDefault();
     this.authService.logout(this.state).then(
       () => {
         this.setState({ user: null });
-        
       },
       error => {
         console.error(error);
@@ -68,11 +65,11 @@ export default class App extends Component {
     );
   };
 
-  switchLang = e =>{
-    e.preventDefault()
-    let lang = !this.state.lang
-    this.setState({...this.state, lang: lang});
-  }
+  switchLang = e => {
+    e.preventDefault();
+    let lang = !this.state.lang;
+    this.setState({ ...this.state, lang: lang });
+  };
 
   render() {
     const { user } = this.state;
@@ -83,16 +80,16 @@ export default class App extends Component {
     let text2;
     let text3;
     //Eng
-    if (this.state.lang === true){
-      text1 = "No match for"
-      text2 = "Are you lost? It seems like you do."
-      text3 = "Get me out of here!"
-    } else{
-      text1 = "No se encontró"
-      text2 = "¿Estás perdido? Parece que sí"
-      text3 = "Sácame de aquí!"
+    if (this.state.lang === true) {
+      text1 = "No match for";
+      text2 = "Are you lost? It seems like you do.";
+      text3 = "Get me out of here!";
+    } else {
+      text1 = "No se encontró";
+      text2 = "¿Estás perdido? Parece que sí";
+      text3 = "Sácame de aquí!";
     }
-   
+
     //Esp
 
     const NoMatch = ({ location }) => (
@@ -107,7 +104,6 @@ export default class App extends Component {
         </h3>
         <h3 className="nomatch-info">{text2}</h3>
         <Link className="safe-link" to="/">
-          
           <h3 className="nomatch-button">{text3}</h3>
         </Link>
       </div>
@@ -122,7 +118,6 @@ export default class App extends Component {
               path="/"
               render={match => (
                 <React.Fragment>
-                  
                   <Sidebar
                     {...match}
                     user={user}
@@ -139,7 +134,6 @@ export default class App extends Component {
               path="/users/:id"
               render={match => (
                 <React.Fragment>
-                  
                   <Sidebar
                     {...match}
                     user={user}
@@ -156,8 +150,13 @@ export default class App extends Component {
               path="/new"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} logout={this.handleLogout} switch={this.switchLang}></Sidebar>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    logout={this.handleLogout}
+                    switch={this.switchLang}
+                  ></Sidebar>
                   <NewUser {...match} user={user} lang={lang}></NewUser>
                 </React.Fragment>
               )}
@@ -167,8 +166,13 @@ export default class App extends Component {
               path="/secret"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} logout={this.handleLogout} switch={this.switchLang}></Sidebar>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    logout={this.handleLogout}
+                    switch={this.switchLang}
+                  ></Sidebar>
                   <Secret {...match} user={user} lang={lang}></Secret>
                 </React.Fragment>
               )}
@@ -184,8 +188,12 @@ export default class App extends Component {
               path="/"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
                   <UserList {...match} user={user} lang={lang}></UserList>
                 </React.Fragment>
               )}
@@ -195,8 +203,12 @@ export default class App extends Component {
               path="/users/:id"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
                   <UserDetail {...match} user={user} lang={lang}></UserDetail>
                 </React.Fragment>
               )}
@@ -206,8 +218,12 @@ export default class App extends Component {
               path="/new"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
                   <NewUser {...match} user={user} lang={lang}></NewUser>
                 </React.Fragment>
               )}
@@ -217,9 +233,13 @@ export default class App extends Component {
               path="/login"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
-                  <Login {...match} setUser={this.setUser} lang={lang}/>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
+                  <Login {...match} setUser={this.setUser} lang={lang} />
                 </React.Fragment>
               )}
             />
@@ -228,9 +248,13 @@ export default class App extends Component {
               path="/signup"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
-                  <SignUp {...match} setUser={this.setUser} lang={lang}/>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
+                  <SignUp {...match} setUser={this.setUser} lang={lang} />
                 </React.Fragment>
               )}
             />
@@ -239,9 +263,17 @@ export default class App extends Component {
               path="/secret"
               render={match => (
                 <React.Fragment>
-                  
-                  <Sidebar {...match} user={user} lang={lang} switch={this.switchLang}></Sidebar>
-                  <NotAllowed {...match} setUser={this.setUser} lang={lang}></NotAllowed>
+                  <Sidebar
+                    {...match}
+                    user={user}
+                    lang={lang}
+                    switch={this.switchLang}
+                  ></Sidebar>
+                  <NotAllowed
+                    {...match}
+                    setUser={this.setUser}
+                    lang={lang}
+                  ></NotAllowed>
                 </React.Fragment>
               )}
             />

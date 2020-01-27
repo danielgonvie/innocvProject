@@ -38,26 +38,24 @@ export default class NewUser extends Component {
   };
 
   render() {
+    //Multi-language
+    let text1;
+    let text2;
+    let text3;
+    let text4;
 
-     //Multi-language
-     let text1;
-     let text2;
-     let text3;
-     let text4;
-     
-     if (this.props.lang === true){
-       text1 = "Add user"
-       text2 = "Name up to 10 characters"
-       text3 = "Add user!"
-       text4 = "New users"
-     } else{
-       text1 = "Añadir usuario"
-       text2 = "Nombre de hasta 10 letras"
-       text3 = "Añadir!"
-       text4 = "Nuevos usuarios"
-     }
+    if (this.props.lang === true) {
+      text1 = "Add user";
+      text2 = "Name up to 10 characters";
+      text3 = "Add user!";
+      text4 = "New users";
+    } else {
+      text1 = "Añadir usuario";
+      text2 = "Nombre de hasta 10 letras";
+      text3 = "Añadir!";
+      text4 = "Nuevos usuarios";
+    }
 
-     
     let newUsers = <React.Fragment></React.Fragment>;
     if (this.state.users !== []) {
       newUsers = (
@@ -72,7 +70,7 @@ export default class NewUser extends Component {
         </div>
       );
     }
-   
+
     return (
       <div className="add-new-user-panel">
         <div className="add-new-user">

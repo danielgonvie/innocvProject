@@ -36,34 +36,32 @@ export default class SignUp extends Component {
   render() {
     const { username, password, name, birthdate } = this.state;
 
-                //Multi-language
-                let text1;
-                let text2;
-                let text3;
-                let text4;
-                let text5;
-                let text6;
-                let text7;
-                
-                if (this.props.lang === true){
-                  text1 = "SIGNUP"
-                  text2 = "Username"
-                  text3 = "Password"
-                  text4 = "Name" 
-                  text5 = "Password > 4 chracters"
-                  text6= "Name up to 10 characters"
-                  text7= "Birthdate"
-                  
-    
-                } else{
-                  text1 = "REGISTRO"
-                  text2 = "Nombre de usuario"
-                  text3 = "Contraseña"
-                  text4 = "Nombre" 
-                  text5 = "Contraseña mayor de 4 caracteres"
-                  text6= "Nombre de hasta 10 letras"
-                  text7= "Fecha de nacimiento"
-                }
+    //Multi-language
+    let text1;
+    let text2;
+    let text3;
+    let text4;
+    let text5;
+    let text6;
+    let text7;
+
+    if (this.props.lang === true) {
+      text1 = "SIGNUP";
+      text2 = "Username";
+      text3 = "Password";
+      text4 = "Name";
+      text5 = "Password > 4 chracters";
+      text6 = "Name up to 10 characters";
+      text7 = "Birthdate";
+    } else {
+      text1 = "REGISTRO";
+      text2 = "Nombre de usuario";
+      text3 = "Contraseña";
+      text4 = "Nombre";
+      text5 = "Contraseña mayor de 4 caracteres";
+      text6 = "Nombre de hasta 10 letras";
+      text7 = "Fecha de nacimiento";
+    }
 
     return (
       <div className="signup-container">

@@ -10,19 +10,19 @@ export default class NotAllowed extends Component {
     let text3;
     let text4;
     let text5;
-    
-    if (this.props.lang === true){
-      text1 = "Who are you?"
-      text2 = "You are not supposed to be here!"
-      text3 = "Maybe if I knew you..."
-      text4 = "Nevermind, "
-      text5 = "go away!"
-    } else{
-      text1 = "¿Quien eres?"
-      text2 = "No deberías estar aquí!"
-      text3 = "A lo mejor, si te conociese.."
-      text4 = "Da igual, "
-      text5 = "vete!"
+
+    if (this.props.lang === true) {
+      text1 = "Who are you?";
+      text2 = "You are not supposed to be here!";
+      text3 = "Maybe if I knew you...";
+      text4 = "Nevermind, ";
+      text5 = "go away!";
+    } else {
+      text1 = "¿Quien eres?";
+      text2 = "No deberías estar aquí!";
+      text3 = "A lo mejor, si te conociese..";
+      text4 = "Da igual, ";
+      text5 = "vete!";
     }
 
     return (
@@ -37,7 +37,8 @@ export default class NotAllowed extends Component {
 
         <p className="not-allowed-text">{text3}</p>
         <p className="not-allowed-text">
-          {text4}<Link to="/">{text5}</Link>
+          {text4}
+          <Link to="/">{text5}</Link>
         </p>
       </div>
     );

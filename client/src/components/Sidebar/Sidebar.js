@@ -15,42 +15,40 @@ export default class Sidebar extends Component {
   }
 
   render() {
+    //Multi-language
+    let text1;
+    let text2;
+    let text3;
+    let text4;
+    let text5;
+    let text6;
+    let text7;
 
-            //Multi-language
-            let text1;
-            let text2;
-            let text3;
-            let text4;
-            let text5;
-            let text6;
-            let text7;
-            
-            if (this.props.lang === true){
-              text1 = "Hi"
-              text2 = "Logout"
-              text3 = "Login"
-              text4 = "SignUp" 
-              text5 = "Top Secret Panel"
-              text6= "Made by"
-              text7 = "🇪🇸"
-
-            } else{
-              text1 = "Hola"
-              text2 = "Desconectar"
-              text3 = "Acceder"
-              text4 = "Registrarse" 
-              text5 = "Zona Ultrasecreta"
-              text6= "Hecho por"
-              text7 = "🇬🇧"
-            }
-
-
+    if (this.props.lang === true) {
+      text1 = "Hi";
+      text2 = "Logout";
+      text3 = "Login";
+      text4 = "SignUp";
+      text5 = "Top Secret Panel";
+      text6 = "Made by";
+      text7 = "🇪🇸";
+    } else {
+      text1 = "Hola";
+      text2 = "Desconectar";
+      text3 = "Acceder";
+      text4 = "Registrarse";
+      text5 = "Zona Ultrasecreta";
+      text6 = "Hecho por";
+      text7 = "🇬🇧";
+    }
 
     let navbar = <React.Fragment></React.Fragment>;
     if (this.state.user !== undefined && this.state.user !== null) {
       navbar = (
         <React.Fragment>
-          <h2>{text1} {this.state.user.name}!</h2>
+          <h2>
+            {text1} {this.state.user.name}!
+          </h2>
           <br></br>
           <Link onClick={e => this.props.logout(e)} to="/">
             <div className="sidebar-option">
@@ -107,17 +105,14 @@ export default class Sidebar extends Component {
         </div>
         <Menu>
           {navbar}
-          <button
-            className="switch-lang"
-            onClick={(e) => this.props.switch(e)}
-            
-          >{text7}</button>
+          <button className="switch-lang" onClick={e => this.props.switch(e)}>
+            {text7}
+          </button>
           <Link to="/secret">
             <h1 className="sidebar-top-secret-panel">{text5}</h1>
           </Link>
           <div className="sidebar-footer">
             <h3 className="credits">
-              
               {text6}
               <img
                 className="github-logo"

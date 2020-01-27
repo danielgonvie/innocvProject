@@ -38,15 +38,15 @@ export default class Login extends Component {
     let text1;
     let text2;
     let text3;
-    
-    if (this.props.lang === true){
-      text1 = "Username"
-      text2 = "Password"
-      text3 = "LOGIN"
-    } else{
-      text1 = "Nombre de usuario"
-      text2 = "Contraseña"
-      text3 = "ACCESO"
+
+    if (this.props.lang === true) {
+      text1 = "Username";
+      text2 = "Password";
+      text3 = "LOGIN";
+    } else {
+      text1 = "Nombre de usuario";
+      text2 = "Contraseña";
+      text3 = "ACCESO";
     }
 
     return (

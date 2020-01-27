@@ -10,7 +10,7 @@ export default class SearchBar extends Component {
     } else {
       text1 = "Buscar usuarios...";
     }
-    
+
     return (
       <div className="searchbar-component">
         <input
