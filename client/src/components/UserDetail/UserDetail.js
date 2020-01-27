@@ -146,21 +146,24 @@ export default class UserDetail extends Component {
   };
 
   render() {
+
+        //Multi-language
+        let text6;
+        let text7;
+    
+        if (this.props.lang === true) {
+          text6 = "All changes saved!";
+          text7 = "Loading user info...";
+        } else {
+          text6 = "¡Todos los cambios guardados!";
+          text7 = "Cargando usuario...";
+        }
+        
     let confirm = <React.Fragment></React.Fragment>;
     if (this.state.confirm === true) {
       confirm = <h1 className="confirm-message">{text6}</h1>;
     }
-    //Multi-language
-    let text6;
-    let text7;
 
-    if (this.props.lang === true) {
-      text6 = "All changes saved!";
-      text7 = "Loading user info...";
-    } else {
-      text6 = "¡Todos los cambios guardados!";
-      text7 = "Cargando usuario...";
-    }
 
     return (
       <div className="user-profile">
